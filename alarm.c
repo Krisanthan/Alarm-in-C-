@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <time.h>
 
 int main(int argc, const char* argv[]){
 	if(argc != 3){
-		printf("Usage: <time HH:MM> <url>");
+		printf("Usage: <time HH:MM> <url>\n");
 	} else {
 		char userTime[4];
 		strcpy(userTime, argv[1]);
@@ -23,7 +24,9 @@ int main(int argc, const char* argv[]){
 		now_tm = localtime(&now);
 		hour = now_tm->tm_hour;
 		min  = now_tm->tm_min;		
-
-		printf("Current time is: %d:%d \n", hour, min);
+		
+		const char* command = ("start %s\n", argv[2]);
+		//ShellExecute(NULL, "open", argv[2], NULL, NULL, SW_SHOWNORMAL);
+		system("start %s\n", command);
 	}
-} 
+}
