@@ -26,7 +26,6 @@ int main(int argc, const char* argv[]){
 		min  = now_tm->tm_min;		
 		
 		const char* command = ("open %s\n", argv[2]);
-		//system(command);
 		system("xdg-open https://www.google.com");
 	}
 }
