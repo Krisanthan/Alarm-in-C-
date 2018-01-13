@@ -25,8 +25,9 @@ int main(int argc, const char* argv[]){
 		hour = now_tm->tm_hour;
 		min  = now_tm->tm_min;		
 		
-		const char* command = ("start %s\n", argv[2]);
+		const char* command = ("open %s\n", argv[2]);
 		//ShellExecute(NULL, "open", argv[2], NULL, NULL, SW_SHOWNORMAL);
-		system("start %s\n", command);
+		//system(command);
+		system("xdg-open https://www.google.com");
 	}
 }
