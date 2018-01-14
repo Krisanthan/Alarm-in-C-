@@ -25,7 +25,10 @@ int main(int argc, const char* argv[]){
 		hour = now_tm->tm_hour;
 		min  = now_tm->tm_min;		
 		
-		const char* command = ("open %s\n", argv[2]);
-		system("xdg-open https://www.google.com");
+		char* command = malloc(strlen("xdg-open ") + strlen(argv[2]) + 1);
+		strcpy(command, "xdg-open ");
+		strcat(command, argv[2]);
+		//const char* command = ("xdg-open %s", argv[2]);
+		system(command);
 	}
 }
