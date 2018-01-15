@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
 int main(int argc, const char* argv[]){
 	if(argc != 3){
@@ -25,10 +26,15 @@ int main(int argc, const char* argv[]){
 		hour = now_tm->tm_hour;
 		min  = now_tm->tm_min;		
 		
+		int time_off = abs((atoi(userHour) * 3600) - (hour * 3600)); // hour difference calculation
+		time_off += abs((atoi(userMin) * 60) - (min * 60)); // min difference calculation
+
+		sleep(time_off);		
+
 		char* command = malloc(strlen("xdg-open ") + strlen(argv[2]) + 1);
 		strcpy(command, "xdg-open ");
 		strcat(command, argv[2]);
-		//const char* command = ("xdg-open %s", argv[2]);
+		
 		system(command);
 	}
 }
