@@ -1,4 +1,4 @@
-#include <stdio.h>
+nclude <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
@@ -10,6 +10,12 @@ int main(int argc, const char* argv[]){
 	} else {
 		char userTime[4];
 		strcpy(userTime, argv[1]);
+		char userHour[3], userMin[3];
+		memcpy(userHour, userTime, 2);
+		memcpy(userMin, &userTime[3], 4);
+		userHour[2] = '\0';
+		userMin[2] = '\0';
+		printf("Alarm set for %s:%s \n", userHour, userMin);
 
 		time_t now;
 		struct tm *now_tm;
