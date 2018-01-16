@@ -30,7 +30,7 @@ int main(int argc, const char* argv[]){
 		int time_off = abs((atoi(userHour) * 3600) - (hour * 3600)); // hour difference calculation
 		time_off += abs((atoi(userMin) * 60) - (min * 60)); // min difference calculation
 
-		sleep(time_off);		
+		sleep(time_off); // sleep until alarm time reached		
 
 		char* command = malloc(strlen("xdg-open ") + strlen(argv[2]) + 1);
 		strcpy(command, "xdg-open ");
