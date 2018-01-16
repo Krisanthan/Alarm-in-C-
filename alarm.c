@@ -6,7 +6,7 @@
 
 int main(int argc, const char* argv[]){
 	if(argc != 3){
-		printf("Usage: <time HH:MM> <url>\n");
+		printf("Usage: <time in HH:MM format> <url in https://www.#URL.com format>\n");
 	} else {
 		char userTime[4];
 		strcpy(userTime, argv[1]);
